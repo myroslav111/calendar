@@ -1,15 +1,7 @@
-import { StatusBar, View } from 'react-native';
-import tw from 'twrnc';
-
-import Home from './app/screens/Home.jsx';
+import Navigation from './app/navigation/Navigation.jsx';
 
 const App = () => {
-  return (
-    <View>
-      <Home />
-      <StatusBar theme='auto' />
-    </View>
-  );
+  return <Navigation />;
 };
 
 export default App;

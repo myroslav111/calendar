@@ -1,16 +1,11 @@
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native';
+import { StatusBar, View } from 'react-native';
 import tw from 'twrnc';
 import { useAppColorScheme, useDeviceContext } from 'twrnc';
 
-import CalendarRoutCard from '../comonent/CalendarRoutCard';
+import CalendarRoutCard from '../comonents/CalendarRoutCard';
+import SwitchColorThem from '../comonents/SwitchColorThem';
 
-const Home = () => {
+const Home = ({ navigation }) => {
   useDeviceContext(tw, { withDeviceColorScheme: false });
   const [colorScheme, toggleColorScheme, setColorScheme] =
     useAppColorScheme(tw);
@@ -20,16 +15,8 @@ const Home = () => {
         'flex flex-col justify-center h-100% items-center dark:bg-black'
       )}
     >
-      <CalendarRoutCard />
-      <TouchableOpacity
-        onPress={toggleColorScheme}
-        style={tw.style(
-          'flex justify-center h-10 w-80 items-center mt-10 dark:bg-black rounded border border-sky-500 '
-        )}
-      >
-        <View className=''></View>
-        <Text style={tw`text-black dark:text-white`}>Switch Color Scheme</Text>
-      </TouchableOpacity>
+      <CalendarRoutCard navigation={navigation} />
+      <SwitchColorThem toggleColorScheme={toggleColorScheme} />
       <StatusBar theme='auto' />
     </View>
   );
